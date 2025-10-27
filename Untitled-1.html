@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Verificador de Idade</title>
+    <style>
+        /* Estilos CSS BÁSICOS */
+        body {
+            font-family: Arial, sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            background-color: #f4f4f9;
+            color: #333;
+            flex-direction: column;
+        }
+
+        h1 {
+            color: #007bff;
+            margin-bottom: 20px;
+        }
+
+        button {
+            padding: 10px 20px;
+            font-size: 16px;
+            cursor: pointer;
+            background-color: #28a745;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            transition: background-color 0.3s;
+        }
+
+        button:hover {
+            background-color: #218838;
+        }
+
+        p#resultado {
+            margin-top: 20px;
+            font-size: 1.2em;
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+
+    <h1>Verificador de Idade</h1>
+    <p>Clique no botão abaixo para rodar o script.</p>
+    <button onclick="verificarIdade()">Executar Verificação</button>
+    <p id="resultado"></p>
+
+    <script>
+        // SEU CÓDIGO JAVASCRIPT
+        function verificarIdade() {
+            // O prompt irá aparecer quando a função for chamada
+            let idade = Number(prompt("Digite sua idade:"));
+
+            let mensagem = "";
+            let resultadoElement = document.getElementById("resultado");
+
+            if (isNaN(idade) || idade === null || idade === "") {
+                mensagem = "Por favor, digite um número válido.";
+                resultadoElement.style.color = "red";
+            } else if (idade >= 18) {
+                // A mensagem original pedia para logar no console
+                console.log("Maior de idade");
+                // Mas vamos mostrar na tela também para o usuário ver
+                mensagem = "Resultado: Maior de idade";
+                resultadoElement.style.color = "green";
+            } else {
+                // A mensagem original pedia para logar no console
+                console.log("Menor de idade");
+                // Mas vamos mostrar na tela também para o usuário ver
+                mensagem = "Resultado: Menor de idade";
+                resultadoElement.style.color = "orange";
+            }
+
+            // Exibe a mensagem no elemento <p> com id="resultado"
+            resultadoElement.textContent = mensagem;
+
+            // Dica: Para ver o 'console.log', pressione F12 no navegador.
+        }
+    </script>
+
+</body>
+</html>
